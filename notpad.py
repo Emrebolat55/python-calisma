@@ -16,16 +16,19 @@ class Notepad(QWidget):
         
         self.yazı_alanı = QTextEdit()
         
+        #buton oluşturma
         self.temizle = QPushButton("Temizle")
         self.ac = QPushButton("Aç")
         self.kaydet = QPushButton("kaydet")
         
+        #horizontalbox oluşturma
         h_box = QHBoxLayout()
         
         h_box.addWidget(self.temizle)
         h_box.addWidget(self.ac)
         h_box.addWidget(self.kaydet)
         
+        #verticalbox oluşturma
         v_box = QVBoxLayout()
         
         v_box.addWidget(self.yazı_alanı),
@@ -33,12 +36,14 @@ class Notepad(QWidget):
         
         self.setLayout(v_box)
         
-        self.setWindowTitle("NotePad")
+        self.setWindowTitle("NotePad") # Arayüzün başlığı
         
+        #burda oluşturduğumuz butonlara bağlanmayı sağlıyoruz
         self.temizle.clicked.connect(self.yaziyi_temizle)
         self.ac.clicked.connect(self.dosya_ac)
         self.kaydet.clicked.connect(self.dosya_kaydet)
     
+    #butonlara fonksiyonel özellik kazandırma
     def yaziyi_temizle(self):
         self.yazı_alanı.clear()
         
